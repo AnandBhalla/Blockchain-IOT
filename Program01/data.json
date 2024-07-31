@@ -1,0 +1,52 @@
+[
+    {
+        "Temperature": 28,
+        "Humidity": 9,
+        "Time": "2024-08-01 00:11:33"
+    },
+    {
+        "Temperature": 33,
+        "Humidity": 5,
+        "Time": "2024-08-01 00:11:34"
+    },
+    {
+        "Temperature": 30,
+        "Humidity": 7,
+        "Time": "2024-08-01 00:11:35"
+    },
+    {
+        "Temperature": 32,
+        "Humidity": 8,
+        "Time": "2024-08-01 00:11:36"
+    },
+    {
+        "Temperature": 37,
+        "Humidity": 2,
+        "Time": "2024-08-01 00:11:37"
+    },
+    {
+        "Temperature": 22,
+        "Humidity": 3,
+        "Time": "2024-08-01 00:11:38"
+    },
+    {
+        "Temperature": 24,
+        "Humidity": 3,
+        "Time": "2024-08-01 00:11:39"
+    },
+    {
+        "Temperature": 33,
+        "Humidity": 2,
+        "Time": "2024-08-01 00:11:40"
+    },
+    {
+        "Temperature": 31,
+        "Humidity": 6,
+        "Time": "2024-08-01 00:11:41"
+    },
+    {
+        "Temperature": 40,
+        "Humidity": 0,
+        "Time": "2024-08-01 00:11:42"
+    }
+]
