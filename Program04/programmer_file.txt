@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 index: 0
 previous hash: 0
 timestamp: 1723486232
@@ -34,3 +35,41 @@ timestamp: 1723486232
 data: data
 hash: bce7d21857441e62b9c1f4cb703d62eab4db3716b9f5aad9a99b308961044594
 
+=======
+index: 0
+previous hash: 0
+timestamp: 1723486232
+data: Genesis Block
+hash: 9c6938d913ba0746cc124a4f889859357f82434efcb32c2a35e9c77d3e41e300
+
+index: 1
+previous hash: 9c6938d913ba0746cc124a4f889859357f82434efcb32c2a35e9c77d3e41e300
+timestamp: 1723486232
+data: this
+hash: f4817fc23393a0d3360276ad9354b6d34a6c2e6f5eb51485674bc2c7ae34315e
+
+index: 2
+previous hash: f4817fc23393a0d3360276ad9354b6d34a6c2e6f5eb51485674bc2c7ae34315e
+timestamp: 1723486232
+data: is
+hash: 2d98586120e230fad3d2fd51ef21737742a6b778934286d845cfe7e2d1dcaa1d
+
+index: 3
+previous hash: 2d98586120e230fad3d2fd51ef21737742a6b778934286d845cfe7e2d1dcaa1d
+timestamp: 1723486232
+data: very
+hash: 938576ae5b5b57f761d769490ea44e9e0c7063a2164a58e41c0c9165cf5e6972
+
+index: 4
+previous hash: 938576ae5b5b57f761d769490ea44e9e0c7063a2164a58e41c0c9165cf5e6972
+timestamp: 1723486232
+data: important
+hash: 6d4e3f6294305de3bcd0d90f1ce8e57b33740af55bba1cd01a1288be94bb6bda
+
+index: 5
+previous hash: 6d4e3f6294305de3bcd0d90f1ce8e57b33740af55bba1cd01a1288be94bb6bda
+timestamp: 1723486232
+data: data
+hash: bce7d21857441e62b9c1f4cb703d62eab4db3716b9f5aad9a99b308961044594
+
+>>>>>>> dff170598e73018beacbc6d4f6ca6167e21b551e
