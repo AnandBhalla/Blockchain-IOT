@@ -1,36 +1,86 @@
 import random
-from sympy import isprime, mod_inverse
+import math
 
-def generate_prime(bits):
+prime = set()
+public_key = 0
+private_key = 0
+n = 0
+
+def primefiller():
+    seive = [True] * 250
+    seive[0] = seive[1] = False
+    for i in range(2, 250):
+        for j in range(i * 2, 250, i):
+            seive[j] = False
+    for i in range(len(seive)):
+        if seive[i]:
+            prime.add(i)
+
+def pickrandomprime():
+    k = random.randint(0, len(prime) - 1)
+    it = iter(prime)
+    for _ in range(k):
+        next(it)
+    ret = next(it)
+    prime.remove(ret)
+    return ret
+
+def setkeys():
+    global public_key, private_key, n
+    prime1 = pickrandomprime()
+    prime2 = pickrandomprime()
+    n = prime1 * prime2
+    fi = (prime1 - 1) * (prime2 - 1)
+    e = 2
     while True:
-        num = random.getrandbits(bits)
-        if isprime(num):
-            return num
+        if math.gcd(e, fi) == 1:
+            break
+        e += 1
+    public_key = e
+    d = 2
+    while True:
+        if (d * e) % fi == 1:
+            break
+        d += 1
+    private_key = d
 
-def generate_keys(bits):
-    p = generate_prime(bits)
-    q = generate_prime(bits)
-    n = p * q
-    phi = (p - 1) * (q - 1)
-    e = 65537
-    d = mod_inverse(e, phi)
-    return (e, n), (d, n)
+def encrypt(message):
+    e = public_key
+    encrypted_text = 1
+    while e > 0:
+        encrypted_text *= message
+        encrypted_text %= n
+        e -= 1
+    return encrypted_text
 
-def encrypt(public_key, message):
-    e, n = public_key
-    return pow(message, e, n)
+def decrypt(encrypted_text):
+    d = private_key
+    decrypted = 1
+    while d > 0:
+        decrypted *= encrypted_text
+        decrypted %= n
+        d -= 1
+    return decrypted
 
-def decrypt(private_key, ciphertext):
-    d, n = private_key
-    return pow(ciphertext, d, n)
+def encoder(message):
+    form = []
+    for letter in message:
+        form.append(encrypt(ord(letter)))
+    return form
 
-public_key, private_key = generate_keys(8)
-message = 4200015
-ciphertext = encrypt(public_key, message)
-decrypted_message = decrypt(private_key, ciphertext)
+def decoder(encoded):
+    s = ""
+    for num in encoded:
+        s += chr(decrypt(num))
+    return s
 
-print("Public Key:", public_key)
-print("Private Key:", private_key)
-print("Original Message:", message)
-print("Ciphertext:", ciphertext)
-print("Decrypted Message:", decrypted_message)
+if __name__ == "__main__":
+    primefiller()
+    setkeys()
+    message = input("Enter a message: ")
+    coded = encoder(message)
+    print("Initial message:\n", message)
+    print("\nThe encoded message (encrypted by public key):")
+    print(coded)
+    print("\nThe decoded message (decrypted by private key):")
+    print(decoder(coded))
